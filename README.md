@@ -23,3 +23,12 @@ Foram criados 5 artefatos na análise, sendo eles:
  - <b>Learning Curve</b>: Mostrar se resultados de treino e teste convergem para um mesmo lugar, prevenindo overfitting ou underfitting.
 		
 3 modelos foram inseridos no pycaret para escolha de um destaque pela acurácia: Regressão Logística, Decision Tree e Support Vector Machines. Estes foram escolhidos por serem os modelos já implementados em outra disciplina. Neste caso, a regressão logística teve melhor desempenho e partiu para <i>hypertunning</i>.
+
+O modelo em operação não mostrou bom resultado, visto que foi treinado para arremessos de 2 pontos e passou a operar para arremessos de 3 pontos. Certamente a distância teve um papel importante que pode ter sido negligenciado no dataset de treino. Abaixo um Classification Report do modelo em operação:
+
+<div align="center">
+    <img src="https://github.com/kreuso/engenharia_machine_learning/blob/main/arremesso_3_pts_classification_report.png" width="400px"</img> 
+</div>
+
+Caso haja disponibilidade da variável resposta, o modelo pode ser monitorado e retreinado por estratégia reativa, isto é, sempre que o desempenho cair abaixo de um limite pré-estabelecido, um alarme é acionado indicando o retreino para posterior homologação e produção.
+Em caso de não disponibilidade da variável resposta, o modelo pode ser monitorado e retreinado por estratégia reativa, isto é, um intervalo de tempo é pré-estabelecido para realização do retreino.
