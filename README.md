@@ -32,3 +32,16 @@ O modelo em operação não mostrou bom resultado, visto que foi treinado para a
 
 Caso haja disponibilidade da variável resposta, o modelo pode ser monitorado e retreinado por estratégia reativa, isto é, sempre que o desempenho cair abaixo de um limite pré-estabelecido, um alarme é acionado indicando o retreino para posterior homologação e produção.
 Em caso de não disponibilidade da variável resposta, o modelo pode ser monitorado e retreinado por estratégia reativa, isto é, um intervalo de tempo é pré-estabelecido para realização do retreino.
+
+O serviço de monitoramento está no arquivo dashboard_st.py, ilustrado pela figura:
+
+<div align="center">
+    <img src="https://github.com/kreuso/engenharia_machine_learning/blob/main/streamlit_monitor_print.png" width="800px"</img> 
+</div>
+
+
+
+Para servir o modelo em mflow usar o código:
+
+os.environ['MLFLOW_TRACKING_URI'] = 'sqlite:///runs_mlflow.db'
+!mlflow models serve -m "models:/modelo_kobe/Staging" --no-conda -p 5001
